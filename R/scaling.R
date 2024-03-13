@@ -23,8 +23,8 @@ xde_scaling_eir = function(model, N=25){
     tmp <- xde_tmp$outputs$stable_orbit
     H = tmp$XH[[1]]$H
     wts_f = as.vector(model$BFpar$searchWts[[1]][[1]])
-    pr_t = tmp$terms$pr
-    ni_t = tmp$terms$ni
+    pr_t = tmp$terms$pr[[1]]
+    ni_t = tmp$terms$ni[[1]]
     tot_pr <- rowSums(as.matrix(pr_t*H))/rowSums(as.matrix(H))
     mean_ni <- rowSums(as.matrix(ni_t*wts_f*H))/rowSums(as.matrix(wts_f*H))
     scaling[[i]] = with(tmp$terms, list(aeir=365*eir, eir=eir, pr=tot_pr, ni=mean_ni, pr_t = pr, ni_t = ni))
