@@ -129,5 +129,9 @@ xde_plot_YZ(model, add_axes = F)
 xde_plot_YZ_fracs(model)
 ```
 
+```{r}
+xde_plot_YZ_fracs(model)
+```
+
 
 

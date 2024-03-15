@@ -10,7 +10,7 @@ MBionomics.RMG <- function(t, y, pars, s) {
     pars$MYZpar[[s]]$f <- f0
     pars$MYZpar[[s]]$q <- q0
     pars$MYZpar[[s]]$g <- g0
-    pars$MYZpar[[s]]$phi <- 1/phi0
+    pars$MYZpar[[s]]$phi <- phi0
     pars$MYZpar[[s]]$sigma <- sigma0
     pars$MYZpar[[s]]$nu <- nu0
 
@@ -111,7 +111,7 @@ setup_MYZpar.RMG = function(MYZname, pars, s, MYZopts=list(), EIPmod, calK){
 #' @return a [list]
 #' @export
 make_MYZpar_RMG = function(nPatches, MYZopts=list(), EIPmod, calK,
-                          g=1/12, sigma=1/8, f=0.3, q=0.95,
+                          g=1/12, sigma=1/8, f=0.5, q=0.95,
                           nu=1, eggsPerBatch=60){
 
   stopifnot(is.matrix(calK))
@@ -131,6 +131,7 @@ make_MYZpar_RMG = function(nPatches, MYZopts=list(), EIPmod, calK,
     MYZpar$q      <- checkIt(q, nPatches)
     MYZpar$nu     <- checkIt(nu, nPatches)
     MYZpar$eggsPerBatch <- eggsPerBatch
+    MYZpar$phi <- 1/MYZpar$eip
 
     # Store as baseline values
     MYZpar$g0      <- MYZpar$g

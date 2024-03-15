@@ -14,3 +14,6 @@ xde_plot_M(model)
 xde_plot_YZ(model, add_axes = F)
 xde_plot_YZ_fracs(model)
 
+## -----------------------------------------------------------------------------
+xde_plot_YZ_fracs(model)
+
